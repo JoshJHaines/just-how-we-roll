@@ -40,7 +40,9 @@ d6Roll.addEventListener("click", function () {
 	sixes.push(rolledD6);
 	console.log("d6:", sortByNumber(sixes));
   console.log("MEAN:", mean(sixes));
+  document.getElementById("d6-rolls-mean").innerText = mean(sixes)
   console.log("MEDIAN:", median(sixes))
+  document.getElementById("d6-rolls-median").innerText = median(sixes)
   d6Roll.src = `images/d6/${rolledD6}.png`
 });
 
@@ -52,13 +54,15 @@ resetAllRolls.addEventListener("click", function () {
 	console.log("reset button clicked");
 	sixes.splice(0, sixes.length);
   console.log("d6:", sixes);
+  document.getElementById("d6-rolls-mean").innerText = ""
+  document.getElementById("d6-rolls-median").innerText = median(sixes)
   d6Roll.src = `images/start/d6.png`
-	doubleSixes.splice(0, doubleSixes.length);
-  console.log("2d6:", doubleSixes);
-	twelves.splice(0, twelves.length);
-  console.log("d12:", twelves);
-	twenties.splice(0, twenties.length);
-	console.log("d20:", twenties);
+	// doubleSixes.splice(0, doubleSixes.length);
+  // console.log("2d6:", doubleSixes);
+	// twelves.splice(0, twelves.length);
+  // console.log("d12:", twelves);
+	// twenties.splice(0, twenties.length);
+	// console.log("d20:", twenties);
 	//reset all arrays to empty
 	//reset images to original
 });
@@ -79,6 +83,7 @@ function mean(arr){
 }
 
 function median(arr){
+  const sortedArr = sortByNumber(arr)
   let medianNum = Math.round((arr.length / 2)-1)
-  return arr[medianNum]
+  return sortedArr[medianNum]
 }
