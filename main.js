@@ -50,6 +50,7 @@ resetAllRolls.addEventListener("click", function () {
 	console.log("reset button clicked");
 	sixes.splice(0, sixes.length);
   console.log("d6:", sixes);
+  d6Roll.src = `images/start/d6.png`
 	doubleSixes.splice(0, doubleSixes.length);
   console.log("2d6:", doubleSixes);
 	twelves.splice(0, twelves.length);
