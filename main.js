@@ -39,12 +39,22 @@ const sortByNumber = function(arr) {
 const d6Roll = document.getElementById('d6-roll');
 d6Roll.addEventListener('click', function() {
   sixes.push(getRandomNumber(6));
-  console.log(sortByNumber(sixes))});
+  console.log(sortByNumber(sixes))
+}
+);
 
 /******************
  * RESET FUNCTION *
  ******************/
-
+ const resetAllRolls = document.getElementById('reset-button');
+ resetAllRolls.addEventListener('click', function() {
+   console.log("reset button clicked")
+   sixes.splice(0, sixes.length)
+   console.log(sixes)
+   //reset all arrays to empty
+   //reset images to original
+ }
+ );
 
 
 /****************************
