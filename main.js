@@ -36,9 +36,9 @@ const sortByNumber = function(arr) {
 /*******************
  * EVENT LISTENERS *
  *******************/
-
-
-
+const d6Roll = document.getElementById('d6-roll');
+d6Roll.addEventListener('click', function() {
+  console.log(getRandomNumber(6))});
 
 /******************
  * RESET FUNCTION *
