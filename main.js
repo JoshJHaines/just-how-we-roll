@@ -36,6 +36,7 @@ const sortByNumber = function (arr) {
  *******************/
 const d6Roll = document.getElementById("d6-roll");
 const doubleD6Roll1 = document.getElementById("double-d6-roll-1");
+const doubleD6Roll2 = document.getElementById("double-d6-roll-2");
 const d12Roll = document.getElementById("d12-roll");
 const d20Roll = document.getElementById("d20-roll");
 
@@ -97,11 +98,25 @@ d6Roll.addEventListener("click", function () {
 
 doubleD6Roll1.addEventListener("click", function () {
 	rolledD6one = getRandomNumber(6);
-	doubleSixes.push(rolledD6one);
-	console.log("d6one:", sortByNumber(doubleSixes));
-	//document.getElementById("d12-rolls-mean").innerText = mean(doubleSixes)
-	//document.getElementById("d12-rolls-median").innerText = median(doubleSixes)
-	// d12Roll.src = `images/numbers/${rolledD12}.png`
+  rolledD6two = getRandomNumber(6);
+	doubleSixes.push(rolledD6one + rolledD6two);
+  console.log("d6one:", rolledD6one , "d6two:", rolledD6two)
+	console.log("doubleD6:", sortByNumber(doubleSixes));
+	document.getElementById("double-d6-rolls-mean").innerText = mean(doubleSixes)
+	document.getElementById("double-d6-rolls-median").innerText = median(doubleSixes)
+	doubleD6Roll1.src = `images/d6/${rolledD6one}.png`
+  doubleD6Roll2.src = `images/d6/${rolledD6two}.png`
+});
+doubleD6Roll2.addEventListener("click", function () {
+	rolledD6one = getRandomNumber(6);
+  rolledD6two = getRandomNumber(6);
+	doubleSixes.push(rolledD6one + rolledD6two);
+  console.log("d6one:", rolledD6one , "d6two:", rolledD6two)
+	console.log("doubleD6:", sortByNumber(doubleSixes));
+	document.getElementById("double-d6-rolls-mean").innerText = mean(doubleSixes)
+	document.getElementById("double-d6-rolls-median").innerText = median(doubleSixes)
+	doubleD6Roll1.src = `images/d6/${rolledD6one}.png`
+  doubleD6Roll2.src = `images/d6/${rolledD6two}.png`
 });
 
 d12Roll.addEventListener("click", function () {
