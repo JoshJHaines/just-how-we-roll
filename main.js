@@ -38,7 +38,8 @@ const sortByNumber = function(arr) {
  *******************/
 const d6Roll = document.getElementById('d6-roll');
 d6Roll.addEventListener('click', function() {
-  console.log(getRandomNumber(6))});
+  sixes.push(getRandomNumber(6));
+  console.log(sortByNumber(sixes))});
 
 /******************
  * RESET FUNCTION *
