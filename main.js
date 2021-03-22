@@ -31,41 +31,14 @@ const sortByNumber = function (arr) {
  * YOUR CODE BELOW *
  *******************/
  const d6Roll = document.getElementById("d6-roll");
- const doubleD6Roll = document.getElementById("d6-roll");
+ const doubleD6Roll1 = document.getElementById("double-d6-roll-1");
  const d12Roll = document.getElementById("d12-roll");
  const d20Roll = document.getElementById("d20-roll");
 /*******************
  * EVENT LISTENERS *
  *******************/
 
-d6Roll.addEventListener("click", function () {
-  rolledD6 = getRandomNumber(6)
-	sixes.push(rolledD6);
-	console.log("d6:", sortByNumber(sixes));
-  document.getElementById("d6-rolls-mean").innerText = mean(sixes)
-  document.getElementById("d6-rolls-median").innerText = median(sixes)
-  d6Roll.src = `images/d6/${rolledD6}.png`
-});
 
-//save dor double d6
-
-d12Roll.addEventListener("click", function () {
-  rolledD12 = getRandomNumber(12)
-	twelves.push(rolledD12);
-	console.log("d12:", sortByNumber(twelves));
-  document.getElementById("d12-rolls-mean").innerText = mean(twelves)
-  document.getElementById("d12-rolls-median").innerText = median(twelves)
-  d12Roll.src = `images/numbers/${rolledD12}.png`
-});
-
-d20Roll.addEventListener("click", function () {
-  rolledD20 = getRandomNumber(20)
-	twenties.push(rolledD20);
-	console.log("d20:", sortByNumber(twenties));
-  document.getElementById("d20-rolls-mean").innerText = mean(twenties)
-  document.getElementById("d20-rolls-median").innerText = median(twenties)
-  d20Roll.src = `images/numbers/${rolledD20}.png`
-});
 /******************
  * RESET FUNCTION *
  ******************/
@@ -89,9 +62,9 @@ function resetAverages(){
   document.getElementById("d6-rolls-median").innerText = "NA"
   document.getElementById("d6-rolls-mode").innerText = "NA"
 //double sixes
-  document.getElementById("d6-rolls-mean").innerText = "NA"
-  document.getElementById("d6-rolls-median").innerText = "NA"
-  document.getElementById("d6-rolls-mode").innerText = "NA"
+  document.getElementById("double-d6-rolls-mean").innerText = "NA"
+  document.getElementById("double-d6-rolls-median").innerText = "NA"
+  document.getElementById("double-d6-rolls-mode").innerText = "NA"
 //twelves
   document.getElementById("d12-rolls-mean").innerText = "NA"
   document.getElementById("d12-rolls-median").innerText = "NA"
@@ -101,7 +74,6 @@ function resetAverages(){
   document.getElementById("d20-rolls-median").innerText = "NA"
   document.getElementById("d20-rolls-mode").innerText = "NA"
 }
-
 
 const resetAllRolls = document.getElementById("reset-button");
 resetAllRolls.addEventListener("click", function () {
@@ -114,6 +86,41 @@ resetAllRolls.addEventListener("click", function () {
 /****************************
  * CLICK HANDLING FUNCTIONS *
  ****************************/
+ d6Roll.addEventListener("click", function () {
+  rolledD6 = getRandomNumber(6)
+	sixes.push(rolledD6);
+	console.log("d6:", sortByNumber(sixes));
+  document.getElementById("d6-rolls-mean").innerText = mean(sixes)
+  document.getElementById("d6-rolls-median").innerText = median(sixes)
+  d6Roll.src = `images/d6/${rolledD6}.png`
+});
+
+doubleD6Roll1.addEventListener("click", function () {
+  rolledD6one = getRandomNumber(6)
+	doubleSixes.push(rolledD6one);
+	console.log("d6one:", sortByNumber(doubleSixes));
+  //document.getElementById("d12-rolls-mean").innerText = mean(doubleSixes)
+  //document.getElementById("d12-rolls-median").innerText = median(doubleSixes)
+  // d12Roll.src = `images/numbers/${rolledD12}.png`
+});
+
+d12Roll.addEventListener("click", function () {
+  rolledD12 = getRandomNumber(12)
+	twelves.push(rolledD12);
+	console.log("d12:", sortByNumber(twelves));
+  document.getElementById("d12-rolls-mean").innerText = mean(twelves)
+  document.getElementById("d12-rolls-median").innerText = median(twelves)
+  d12Roll.src = `images/numbers/${rolledD12}.png`
+});
+
+d20Roll.addEventListener("click", function () {
+  rolledD20 = getRandomNumber(20)
+	twenties.push(rolledD20);
+	console.log("d20:", sortByNumber(twenties));
+  document.getElementById("d20-rolls-mean").innerText = mean(twenties)
+  document.getElementById("d20-rolls-median").innerText = median(twenties)
+  d20Roll.src = `images/numbers/${rolledD20}.png`
+});
 
 /****************
  * MATH SECTION *
@@ -123,7 +130,7 @@ function mean(arr){
   for (num of arr){
     sum += num
   }
-  return sum / arr.length
+  return (sum / arr.length).toFixed(2)
 }
 
 function median(arr){
