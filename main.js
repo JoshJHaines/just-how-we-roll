@@ -39,6 +39,8 @@ d6Roll.addEventListener("click", function () {
   rolledD6 = getRandomNumber(6)
 	sixes.push(rolledD6);
 	console.log("d6:", sortByNumber(sixes));
+  console.log("MEAN:", mean(sixes));
+  console.log("MEDIAN:", median(sixes))
   d6Roll.src = `images/d6/${rolledD6}.png`
 });
 
@@ -74,4 +76,9 @@ function mean(arr){
     sum += num
   }
   return sum / arr.length
+}
+
+function median(arr){
+  let medianNum = Math.round((arr.length / 2)-1)
+  return arr[medianNum]
 }
