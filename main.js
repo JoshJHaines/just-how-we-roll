@@ -43,20 +43,22 @@ const d20Roll = document.getElementById("d20-roll");
 /******************
  * RESET FUNCTION *
  ******************/
+//arrays
 function resetArrays() {
 	sixes.splice(0, sixes.length);
 	doubleSixes.splice(0, doubleSixes.length);
 	twelves.splice(0, twelves.length);
 	twenties.splice(0, twenties.length);
 }
-
+//images
 function resetImages() {
 	d6Roll.src = `images/start/d6.png`;
-	d6Roll.src = `images/start/d6.png`;
+	doubleD6Roll1.src = `images/start/d6.png`;
+  doubleD6Roll2.src = `images/start/d6.png`;
 	d12Roll.src = `images/start/d12.jpeg`;
 	d20Roll.src = `images/start/d20.jpg`;
 }
-
+//averages
 function resetAverages() {
 	//sixes
 	document.getElementById("d6-rolls-mean").innerText = "NA";
@@ -87,6 +89,7 @@ resetAllRolls.addEventListener("click", function () {
 /****************************
  * CLICK HANDLING FUNCTIONS *
  ****************************/
+//sixes
 d6Roll.addEventListener("click", function () {
 	rolledD6 = getRandomNumber(6);
 	sixes.push(rolledD6);
@@ -95,7 +98,7 @@ d6Roll.addEventListener("click", function () {
 	document.getElementById("d6-rolls-median").innerText = median(sixes);
 	d6Roll.src = `images/d6/${rolledD6}.png`;
 });
-
+//double sixes
 doubleD6Roll1.addEventListener("click", function () {
 	rolledD6one = getRandomNumber(6);
   rolledD6two = getRandomNumber(6);
@@ -118,7 +121,7 @@ doubleD6Roll2.addEventListener("click", function () {
 	doubleD6Roll1.src = `images/d6/${rolledD6one}.png`
   doubleD6Roll2.src = `images/d6/${rolledD6two}.png`
 });
-
+//twelves
 d12Roll.addEventListener("click", function () {
 	rolledD12 = getRandomNumber(12);
 	twelves.push(rolledD12);
@@ -127,7 +130,7 @@ d12Roll.addEventListener("click", function () {
 	document.getElementById("d12-rolls-median").innerText = median(twelves);
 	d12Roll.src = `images/numbers/${rolledD12}.png`;
 });
-
+//twenties
 d20Roll.addEventListener("click", function () {
 	rolledD20 = getRandomNumber(20);
 	twenties.push(rolledD20);
@@ -154,4 +157,6 @@ function median(arr) {
 	return sortedArr[medianNum];
 }
 
-function mode(arr) {}
+function mode(arr) {
+
+}
