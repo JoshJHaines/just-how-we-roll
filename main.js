@@ -68,3 +68,10 @@ resetAllRolls.addEventListener("click", function () {
 /****************
  * MATH SECTION *
  ****************/
+function mean(arr){
+  let sum = 0
+  for (num of arr){
+    sum += num
+  }
+  return sum / arr.length
+}
