@@ -30,41 +30,85 @@ const sortByNumber = function (arr) {
 /*******************
  * YOUR CODE BELOW *
  *******************/
-
+ const d6Roll = document.getElementById("d6-roll");
+ const doubleD6Roll = document.getElementById("d6-roll");
+ const d12Roll = document.getElementById("d12-roll");
+ const d20Roll = document.getElementById("d20-roll");
 /*******************
  * EVENT LISTENERS *
  *******************/
-const d6Roll = document.getElementById("d6-roll");
+
 d6Roll.addEventListener("click", function () {
   rolledD6 = getRandomNumber(6)
 	sixes.push(rolledD6);
 	console.log("d6:", sortByNumber(sixes));
-  console.log("MEAN:", mean(sixes));
   document.getElementById("d6-rolls-mean").innerText = mean(sixes)
-  console.log("MEDIAN:", median(sixes))
   document.getElementById("d6-rolls-median").innerText = median(sixes)
   d6Roll.src = `images/d6/${rolledD6}.png`
 });
 
+//save dor double d6
+
+d12Roll.addEventListener("click", function () {
+  rolledD12 = getRandomNumber(12)
+	twelves.push(rolledD12);
+	console.log("d12:", sortByNumber(twelves));
+  document.getElementById("d12-rolls-mean").innerText = mean(twelves)
+  document.getElementById("d12-rolls-median").innerText = median(twelves)
+  d12Roll.src = `images/numbers/${rolledD12}.png`
+});
+
+d20Roll.addEventListener("click", function () {
+  rolledD20 = getRandomNumber(20)
+	twenties.push(rolledD20);
+	console.log("d20:", sortByNumber(twenties));
+  document.getElementById("d20-rolls-mean").innerText = mean(twenties)
+  document.getElementById("d20-rolls-median").innerText = median(twenties)
+  d20Roll.src = `images/numbers/${rolledD20}.png`
+});
 /******************
  * RESET FUNCTION *
  ******************/
+function resetArrays(){
+	sixes.splice(0, sixes.length);
+  doubleSixes.splice(0, doubleSixes.length);
+  twelves.splice(0, twelves.length);
+  twenties.splice(0, twenties.length);
+}
+
+function resetImages(){
+  d6Roll.src = `images/start/d6.png`
+  d6Roll.src = `images/start/d6.png`
+  d12Roll.src = `images/start/d12.jpeg`
+  d20Roll.src = `images/start/d20.jpg`
+}
+
+function resetAverages(){
+//sixes
+  document.getElementById("d6-rolls-mean").innerText = "NA"
+  document.getElementById("d6-rolls-median").innerText = "NA"
+  document.getElementById("d6-rolls-mode").innerText = "NA"
+//double sixes
+  document.getElementById("d6-rolls-mean").innerText = "NA"
+  document.getElementById("d6-rolls-median").innerText = "NA"
+  document.getElementById("d6-rolls-mode").innerText = "NA"
+//twelves
+  document.getElementById("d12-rolls-mean").innerText = "NA"
+  document.getElementById("d12-rolls-median").innerText = "NA"
+  document.getElementById("d12-rolls-mode").innerText = "NA"
+//twenties
+  document.getElementById("d20-rolls-mean").innerText = "NA"
+  document.getElementById("d20-rolls-median").innerText = "NA"
+  document.getElementById("d20-rolls-mode").innerText = "NA"
+}
+
+
 const resetAllRolls = document.getElementById("reset-button");
 resetAllRolls.addEventListener("click", function () {
 	console.log("reset button clicked");
-	sixes.splice(0, sixes.length);
-  console.log("d6:", sixes);
-  document.getElementById("d6-rolls-mean").innerText = ""
-  document.getElementById("d6-rolls-median").innerText = median(sixes)
-  d6Roll.src = `images/start/d6.png`
-	// doubleSixes.splice(0, doubleSixes.length);
-  // console.log("2d6:", doubleSixes);
-	// twelves.splice(0, twelves.length);
-  // console.log("d12:", twelves);
-	// twenties.splice(0, twenties.length);
-	// console.log("d20:", twenties);
-	//reset all arrays to empty
-	//reset images to original
+	resetArrays();
+  resetImages();
+  resetAverages();
 });
 
 /****************************
@@ -86,4 +130,8 @@ function median(arr){
   const sortedArr = sortByNumber(arr)
   let medianNum = Math.round((arr.length / 2)-1)
   return sortedArr[medianNum]
+}
+
+function mode(arr){
+
 }
